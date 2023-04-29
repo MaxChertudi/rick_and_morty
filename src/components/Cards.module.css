@@ -1,0 +1,14 @@
+.cards {
+    /* display:flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));  */
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+  }
