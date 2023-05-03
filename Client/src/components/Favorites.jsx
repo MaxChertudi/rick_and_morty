@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import Card from './Card';
 import { Link } from "react-router-dom"; 
-import { ORDER, FILTER } from '../redux/types';
 import { filterCards, orderCards } from '../redux/actions';
 
-const Favorites = ({myFavorites}) => {
+const Favorites = ({myFavorites, onClose}) => {
    const dispatch = useDispatch();
    const [aux, setAux] = useState(false);
 
@@ -29,8 +28,9 @@ const Favorites = ({myFavorites}) => {
          </div>
       )
    } else {
+      console.log("onclose:", onclose);
       return(
-         <div className={styles.favorites} id='favorites' key='favorites'>   
+         <div className={styles.favorites} id='favorites' keys='favorites'>   
            <div id='selectores'>
             <select name="order" onChange={handleOrder}>  
                <option value="Ascendente">Ascendente</option> 
@@ -48,14 +48,14 @@ const Favorites = ({myFavorites}) => {
             {myFavorites?.map((item) => {
             return (<Card
             id = {item.id}
-            keys = {item.id}
+            key = {item.id}
             name = {item.name}
             status = {item.status}
             species = {item.species}
             gender = {item.gender}
             origin = {item.origin?.name}
             image = {item.image}
-            // onClose = {() => onClose(item.id)}
+            onClose = {() => onClose(item.id)}
             />)
             } )  
             }     

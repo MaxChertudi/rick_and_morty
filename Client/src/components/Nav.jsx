@@ -1,6 +1,6 @@
 import styles from './Nav.module.css';
 import SearchBar from './SearchBar.jsx';
-import { Navigate, NavLink, Outlet, styleNav} from "react-router-dom";
+import { NavLink, Outlet} from "react-router-dom";
 
 export default function Nav(props) {
     

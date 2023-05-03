@@ -7,13 +7,14 @@ export default function Cards({characters, onClose}) {
        {characters.map((item) => {
             return (<Card
             id = {item.id}
-            keys = {item.id}
+            key = {item.id}
             name = {item.name}
             status = {item.status}
             species = {item.species}
             gender = {item.gender}
             origin = {item.origin.name}
             image = {item.image}
+            onClose = {onClose}
              />)
          } )  
       }     

@@ -24,7 +24,7 @@ export default function Detail() {
             character ? (
             <div id='Detail' className={styles.detail}>
             <Link to={'/home'} > 
-            <button className={styles.boton} > X </button>
+            <button className={styles.boton2} > X </button>
             </Link>
                <h1>Detail of {character.name}</h1> 
                <h3> {character.status}</h3> 

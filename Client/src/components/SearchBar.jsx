@@ -10,14 +10,6 @@ export default function SearchBar({props}) {
       props.onSearch(id)
    setId(evento.target.value);
 }
-
-// let input = document.getElementById("box");
-// input.addEventListener("keyup", function(event) {
-//     if (evento.keyCode === 13) {
-//         evento.preventDefault();
-//         document.getElementById("boton").click();
-//     }
-// });
    return (
       <div id='searchbar' className={styles.searchBox}>
          <input id='box' type='search' className={styles.input} value={id} onChange={handleChange}/>

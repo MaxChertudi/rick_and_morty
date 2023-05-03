@@ -6,7 +6,7 @@ export default function About () {
         <div id='About' className={styles.about}>
             <h1> About Maximo Chertudi</h1>
              <Link to={'/home'} > 
-                <button className={styles.boton}> X </button>
+                <button className={styles.boton2}> X </button>
              </Link>
              <img src={require("../images/about.png")} alt='about'/> 
          </div>
