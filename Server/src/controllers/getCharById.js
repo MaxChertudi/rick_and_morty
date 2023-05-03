@@ -1,7 +1,6 @@
 const axios = require('axios');
 
 getCharById = (res, id) => {
-    console.log("id:", id);
     axios(`https://rickandmortyapi.com/api/character/${id}`)
         .then(({ data }) => {
             const returnedObj = {
