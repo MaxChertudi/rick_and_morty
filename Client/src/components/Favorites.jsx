@@ -5,7 +5,7 @@ import Card from './Card';
 import { Link } from "react-router-dom"; 
 import { filterCards, orderCards } from '../redux/actions';
 
-const Favorites = ({myFavorites, onClose}) => {
+const Favorites = ({myFavorites}, onClose) => {
    const dispatch = useDispatch();
    const [aux, setAux] = useState(false);
 
@@ -22,13 +22,12 @@ const Favorites = ({myFavorites, onClose}) => {
       return (
          <div className={styles.mensaje}>
             <Link to={'/home'}> 
-               <button className={styles.boton} > X </button>
+               <button className={styles.boton2} > X </button>
                <h2 className={styles.title}>No existen favoritos</h2>
             </Link>
          </div>
       )
    } else {
-      console.log("onclose:", onclose);
       return(
          <div className={styles.favorites} id='favorites' keys='favorites'>   
            <div id='selectores'>

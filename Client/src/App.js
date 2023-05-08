@@ -12,8 +12,6 @@ import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
 function App() {
    let [characters, setCharacters] = useState([]); 
    let [access, setAccess] = useState(false);
-   let email = 'maximo.chertudi@gmail.com';
-   let password = 'Password!';
    let location = useLocation();
    const navigate = useNavigate();
 
@@ -36,27 +34,20 @@ function App() {
          .catch((error) => console.log(error))
    }
 
-   // function onSearch(id) {
-   //    axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-   //       if (data.name) {
-   //          setCharacters((characters) => [...characters, data]);
-   //       } else {
-   //          window.alert('¡No hay personajes con este ID!');
-   //       }
-   //    });
-   // }
-   function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-         if (data.name) {
-            setCharacters((characters) => [...characters, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
-      });
+   
+   function onSearch(id) { 
+      axios(`http://localhost:3001/rickandmorty/character/${id}`)
+         .then(({ data }) => {
+            if (data.name)
+               setCharacters((characters) => [...characters, data]);
+            else 
+               window.alert('¡No hay personajes con este ID!');
+         } );
    }
    
    function onClose(id) {
-      setCharacters(characters.filter((obj) => obj.id!==Number(id)));
+      const arrFiltered = characters.filter((obj) => obj.id!=Number(id));
+      setCharacters(arrFiltered);
    }
 
    useEffect(() => { !access && navigate('/'); }, [access]);
