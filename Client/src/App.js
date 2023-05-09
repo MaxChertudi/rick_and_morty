@@ -15,36 +15,35 @@ function App() {
    let location = useLocation();
    const navigate = useNavigate();
 
-   // function login(userData) {
-   //    if (userData.email===email && userData.password === password) {
-   //       setAccess(true);
-   //       navigate('/home');
-   //    }
-   // }
-
-   function login(userData) {
-      const { email, password } = userData;
-      const URL = 'http://localhost:3001/rickandmorty/login/';
-      axios(URL + `?email=${email}&password=${password}`)
-         .then(({ data }) => {
-            const { access } = data;
-            setAccess(data);
-            access && navigate('/home');} 
-         )
-         .catch((error) => console.log(error))
-   }
-
-   
-   function onSearch(id) { 
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-         .then(({ data }) => {
-            if (data.name)
-               setCharacters((characters) => [...characters, data]);
-            else 
-               window.alert('¡No hay personajes con este ID!');
-         } );
+   async function login(userData) {
+      try {
+         const { email, password } = userData;
+         const URL = 'http://localhost:3001/rickandmorty/login/';
+         const result = await axios(URL + `?email=${email}&password=${password}`)
+         const { data } = result;
+         const { access } = data;
+         setAccess(data);
+         access && navigate('/home');
+      } 
+      catch (error) {
+         console.log(error);
+      }
    }
    
+   async function onSearch(id) { 
+      try {
+         const result = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
+         const { data } = result;
+         if (data.name)
+            setCharacters((characters) => [...characters, data]);
+         else 
+            window.alert('¡No hay personajes con este ID!');
+      }
+      catch (error) {
+         console.log(error);
+      }
+   } 
+
    function onClose(id) {
       const arrFiltered = characters.filter((obj) => obj.id!=Number(id));
       setCharacters(arrFiltered);
