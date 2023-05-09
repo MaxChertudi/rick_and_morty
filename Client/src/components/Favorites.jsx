@@ -54,7 +54,7 @@ const Favorites = ({myFavorites}, onClose) => {
             gender = {item.gender}
             origin = {item.origin?.name}
             image = {item.image}
-            onClose = {() => onClose(item.id)}
+            onClose = {onClose}
             />)
             } )  
             }     

@@ -31,6 +31,11 @@ function App() {
    }
    
    async function onSearch(id) { 
+      if ( characters.find(character => character.id===Number(id)) ) {
+         alert('El personaje ya esta agregado!');
+         return;
+      }
+
       try {
          const result = await axios(`http://localhost:3001/rickandmorty/character/${id}`);
          const { data } = result;
