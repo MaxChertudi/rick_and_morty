@@ -8,6 +8,7 @@ import Form from './components/Form';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
+import reducer from "../src/redux/reducer";
 
 function App() {
    let [characters, setCharacters] = useState([]); 
@@ -23,6 +24,8 @@ function App() {
          const { data } = result;
          const { access } = data;
          setAccess(data);
+         setCharacters([]);
+         //reducer('reset');
          access && navigate('/home');
       } 
       catch (error) {
@@ -52,6 +55,7 @@ function App() {
    function onClose(id) {
       const arrFiltered = characters.filter((obj) => obj.id!=Number(id));
       setCharacters(arrFiltered);
+      //dispatch(removecompfav(id))  remove_fav y en el reducer quitar 
    }
 
    useEffect(() => { !access && navigate('/'); }, [access]);

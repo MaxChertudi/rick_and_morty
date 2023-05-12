@@ -1,7 +1,7 @@
 const URL = "https://rickandmortyapi.com/api/character/";
 const axios = require('axios');
 
-const getCharById = async (req, res) => {
+const getCharById = async(req, res) => {
     try {
         const p_id = req.params.id; 
         const result =  await axios(URL+p_id);

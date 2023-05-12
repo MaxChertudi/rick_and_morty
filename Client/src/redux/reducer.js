@@ -40,6 +40,10 @@ const initialState = {
             });
             return { ...state, myFavorites: [...orderCharacter] }
         }
+        case 'reset': {
+            initialState.myFavorites= []; 
+            initialState.allCharacters= [];
+        }
 
         default:
             return {...state};

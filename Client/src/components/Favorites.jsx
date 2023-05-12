@@ -5,7 +5,7 @@ import Card from './Card';
 import { Link } from "react-router-dom"; 
 import { filterCards, orderCards } from '../redux/actions';
 
-const Favorites = ({myFavorites}, onClose) => {
+const Favorites = ({myFavorites, onClose}) => {
    const dispatch = useDispatch();
    const [aux, setAux] = useState(false);
 
