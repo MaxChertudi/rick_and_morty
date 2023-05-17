@@ -1,9 +1,10 @@
 
 const PORT = 3001;
 const express = require('express');
+const morgan = require('morgan');
 const server = express();
 const cors = require('cors');
-const router = require('./routes/index.js');
+const router = require('./routes/app.js');
 
 server.use(cors());
 
@@ -22,5 +23,6 @@ server.use((req, res, next) => {
 });
       
 server.use(express.json());
+server.use(morgan('dev'));
 server.use('/rickandmorty', router);
 server.listen(PORT, () => { console.log(`Server is running on port ${PORT}`); });
