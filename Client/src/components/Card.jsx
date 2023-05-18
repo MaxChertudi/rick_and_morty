@@ -61,25 +61,3 @@ export function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
-
-
-// antes de Redux:
-// export default function Card(props) {
-//    const {id, onClose, name, gender, image, species, status, origin} = props;
-
-//    return (
-//       <>
-//          <div className={styles.card} id={id} key={id}>    
-//             <Link to={`/detail/${id}`} > 
-//                <h2> 
-//                   {name} 
-//                </h2>
-//             </Link>
-//             <button className={styles.boton} onClick={() => onClose(id)}> X </button>
-//             <img src={image} alt={name} />
-//          </div>
-//       </>
-//    );
-// }
-
-//v2

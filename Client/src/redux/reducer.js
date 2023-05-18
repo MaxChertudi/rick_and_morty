@@ -1,4 +1,4 @@
-import { ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./types";
+import { ADD_FAV, FILTER, ORDER, REMOVE_FAV, USEREMAIL } from "./types";
 
 const initialState = {
     myFavorites: [],
@@ -43,6 +43,11 @@ const initialState = {
         case 'reset': {
             initialState.myFavorites= []; 
             initialState.allCharacters= [];
+        }
+
+        case USEREMAIL: {
+            return {...state, 
+                userEmail: action.payload};
         }
 
         default:

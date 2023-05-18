@@ -8,7 +8,6 @@ import Form from './components/Form';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {Routes, Route, useLocation, useNavigate} from 'react-router-dom';
-import reducer from "../src/redux/reducer";
 
 function App() {
    let [characters, setCharacters] = useState([]); 
@@ -20,12 +19,11 @@ function App() {
       try {
          const { email, password } = userData;
          const URL = 'http://localhost:3001/rickandmorty/login/';
-         const result = await axios(URL + `?email=${email}&password=${password}`)
-         const { data } = result;
-         const { access } = data;
-         setAccess(data);
+         const result = await axios.post(URL + `?email=${email}&password=${password}`)
+         const { access } = result.data;
+         
+         setAccess(access);
          setCharacters([]);
-         //reducer('reset');
          access && navigate('/home');
       } 
       catch (error) {

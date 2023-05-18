@@ -1,6 +1,5 @@
-import { ADD_FAV, ORDER, REMOVE_FAV, FILTER } from "./types";
+import { ADD_FAV, ORDER, REMOVE_FAV, FILTER, USEREMAIL } from "./types";
 import axios from "axios";
-
 
 export const addFav = (character) => {
    try {
@@ -17,8 +16,6 @@ export const addFav = (character) => {
       return {error: error.message};
    }
 };
-
-
 
 export const removeFav = (id) => {
    try{
@@ -44,4 +41,9 @@ export const filterCards = (gender) => {
 export const orderCards = (orden) => {
     return ({type : ORDER,
         payload : orden});
+}
+
+export const saveUserEmail = (email) => {
+   return ({type : USEREMAIL,
+       payload : email});
 }
