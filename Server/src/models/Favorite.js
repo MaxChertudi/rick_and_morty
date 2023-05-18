@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
    sequelize.define('Favorite', {
       id: {
          type: DataTypes.INTEGER,
-         autoIncrement: true,
+         allowNull: false,
          primaryKey: true
       },
       name: {
@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
          allowNull: false
       },
       status: {
-         type: DataTypes.STRING,
+         type: DataTypes.ENUM('Alive', 'Dead', 'unknown'),
          allowNull: false
       },
       species: {
@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
          allowNull: false
       },
       gender: {
-         type: DataTypes.STRING,
+         type: DataTypes.ENUM('Female', 'Male', 'Genderless', 'unknown'),
          allowNull: false
       },
       origin: {

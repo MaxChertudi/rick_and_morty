@@ -26,8 +26,7 @@ server.use((req, res, next) => {
 server.use(express.json());
 server.use(morgan('dev'));
 server.use('/rickandmorty', router);
-
-server.listen(PORT, async () => { 
-   await conn.sync({force: true});
-   console.log(`Server is running on port ${PORT}`); 
+conn.sync({force: true}).then( () => {
+   server.listen(PORT, () => { console.log(`Server is running on port ${PORT}`); })
 });
+
